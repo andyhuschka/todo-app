@@ -43,6 +43,7 @@ function addTodo() {
 
   const newTodo = { id: generateId(), description: description, done: false };
   todos.push(newTodo);
+  console.log("New Todo added:", newTodo); // Console log für das neue Todo
   saveTodosToLocalStorage();
   renderTodos();
   todoInput.value = "";
