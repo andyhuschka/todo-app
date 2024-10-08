@@ -1,13 +1,16 @@
 let todos = [];
 let filter = "all";
 
+// Load todos from localStorage when the app starts
 window.onload = () => {
   loadTodosFromLocalStorage();
   renderTodos();
 };
 
+// Event listener to add new todo
 document.getElementById("add-todo-btn").addEventListener("click", addTodo);
 
+// Event listeners for filter buttons
 document.querySelectorAll(".filter-btn").forEach((btn) => {
   btn.addEventListener("click", (e) => {
     filter = e.target.getAttribute("data-filter");
@@ -19,6 +22,7 @@ document.querySelectorAll(".filter-btn").forEach((btn) => {
   });
 });
 
+// Event listener to remove completed todos
 document
   .getElementById("remove-done-btn")
   .addEventListener("click", removeDoneTodos);
