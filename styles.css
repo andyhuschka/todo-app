@@ -133,3 +133,18 @@ h1 {
 .remove-btn:hover {
   background-color: #c0392b;
 }
+
+.edit-btn {
+  background-color: #2980b9;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  margin-left: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.edit-btn:hover {
+  background-color: #3498db;
+}

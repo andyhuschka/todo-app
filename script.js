@@ -70,8 +70,14 @@ function renderTodos() {
     const description = document.createElement("span");
     description.textContent = todo.description;
 
+    const editButton = document.createElement("button");
+    editButton.textContent = "Edit";
+    editButton.classList.add("edit-btn");
+    editButton.addEventListener("click", () => editTodo(todo.id));
+
     li.appendChild(checkbox);
     li.appendChild(description);
+    li.appendChild(editButton);
     todoList.appendChild(li);
   });
 }
@@ -87,6 +93,19 @@ function removeDoneTodos() {
   todos = todos.filter((todo) => !todo.done);
   saveTodosToLocalStorage();
   renderTodos();
+}
+
+function editTodo(id) {
+  const todo = todos.find((todo) => todo.id === id);
+  const newDescription = prompt("Edit your todo:", todo.description);
+
+  if (newDescription !== null && newDescription.trim() !== "") {
+    todo.description = newDescription.trim();
+    saveTodosToLocalStorage();
+    renderTodos();
+  } else {
+    alert("Todo description cannot be empty!");
+  }
 }
 
 function generateId() {
